@@ -762,7 +762,16 @@ function build.create_packed_circuit_internal(procinfo, nolamp, recursionSet, to
                     table.insert(input_list, proc.inner_input)
                 end
             elseif remote_name_map[name] then
-                local tags = bp.get_blueprint_entity_tags(index)
+                local tags = bp.get_blueprint_entity_tags(index) or {}
+                -- Older blueprints can contain only the remote entity's
+                -- position and direction in tags, while Factorio keeps the
+                -- combinator configuration in the standard control behavior.
+                -- Remote arithmetic combinators expect that configuration in
+                -- `parameters` when constructing their packed counterpart.
+                if not tags.parameters and bpentity.control_behavior then
+                    tags.parameters =
+                        bpentity.control_behavior.arithmetic_conditions
+                end
                 local remote_driver = remote_name_map[name]
                 local pos = {
                     x = position.x + bpentity.position.x / 32,
