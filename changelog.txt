@@ -17,6 +17,7 @@ Date: 23. 08. 2026
     - Ensures that input component values from the blueprint are correctly read and assigned
       to input components
     - Inherit input values from nested circuits in the outer circuit's input context.
+    - Restore packed decider combinators from Factorio 2.0 model blueprints.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.28
 Date: 29.3.206

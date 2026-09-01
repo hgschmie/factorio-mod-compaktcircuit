@@ -595,7 +595,12 @@ function build.create_packed_circuit_internal(procinfo, nolamp, recursionSet, to
                     elseif name == "decider-combinator" then
                         local cb = entity.get_or_create_control_behavior() --[[@as LuaDeciderCombinatorControlBehavior]]
                         if bpentity.control_behavior and cb then
-                            cb.parameters = bpentity.control_behavior.decider_conditions
+                            local parameters =
+                                bpentity.control_behavior.decider_conditions
+                            if parameters and not parameters.else_outputs then
+                                parameters.else_outputs = {}
+                            end
+                            cb.parameters = parameters
                         end
                     elseif name == "selector-combinator" then
                         local cb = entity.get_or_create_control_behavior() --[[@as LuaSelectorCombinatorControlBehavior]]
