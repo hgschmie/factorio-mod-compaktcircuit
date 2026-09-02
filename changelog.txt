@@ -19,6 +19,7 @@ Date: 23. 08. 2026
     - Inherit input values from nested circuits in the outer circuit's input context.
     - Restore packed decider combinators from Factorio 2.0 model blueprints.
     - Restore remote arithmetic-combinator settings from older model blueprints.
+    - Preserve the mini processor variant when mining processors as tagged items.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.28
 Date: 29.3.206
