@@ -326,10 +326,10 @@ end
 local function set_tags(procinfo, tags, entity)
     procinfo.wires = tags.wires --[[@as WireDefinition[] ]]
     if tags.blueprint then
-        procinfo.blueprint = tags.blueprint
+        procinfo.blueprint = tags.blueprint --[[@as string]]
     elseif tags.circuits then
         procinfo.circuits = tags.circuits and
-            helpers.json_to_table(tags.circuits --[[@as string]]) --[[@as Circuit[]]
+            helpers.json_to_table(tags.circuits --[[@as string]]) --[[@as Circuit[] ]]
     else
         return
     end

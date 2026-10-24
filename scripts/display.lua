@@ -1333,7 +1333,7 @@ local special_signals = ccutils.special_signals
 
 ---@param rt EntityWithIdAndProcess
 local function process_meta(rt)
-    ---@cast rt MetaRuntime+
+    ---@cast rt MetaRuntime
     if is_source_invalid(rt) then return end
 
     if rt.hidden then
